@@ -24,7 +24,6 @@ ProjectMusicController="*res://addons/maaacks_menus_template/base/nodes/autoload
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/nodes/autoloads/ui_sound_controller/project_ui_sound_controller.tscn"
 GameManager="*res://Globals/game_manager_Global.gd"
 UiManager="*res://globals/UI_Manager.gd"
-WaveManager="*res://Globals/wave_manager.gd"
 
 [debug]
 
