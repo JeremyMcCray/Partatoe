@@ -1,0 +1,248 @@
+[gd_scene load_steps=18 format=3 uid="uid://oqqv8ckxcl3c"]
+
+[ext_resource type="PackedScene" uid="uid://bwjv6vp838wod" path="res://HUD/knight_hud.tscn" id="1_fc1lb"]
+[ext_resource type="Script" uid="uid://dy8afl78888tt" path="res://HUD/hud.gd" id="1_kcgbh"]
+[ext_resource type="Texture2D" uid="uid://todj7t4plyuw" path="res://HUD/inventory/16x16 Item holder.png" id="7_exiwi"]
+[ext_resource type="Texture2D" uid="uid://dkxknbryhgx2t" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_windows_1.png" id="9_waoyc"]
+[ext_resource type="Script" uid="uid://cj20l2deo2rar" path="res://HUD/rich_text_label.gd" id="12_huo54"]
+[ext_resource type="Texture2D" uid="uid://dha2a4287twic" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_buttons_13.png" id="14_ihvjp"]
+[ext_resource type="Texture2D" uid="uid://bdw5tbsiil1ta" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_buttons_12.png" id="15_kcgbh"]
+[ext_resource type="Texture2D" uid="uid://dx4y0lxfnldup" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_buttons_21.png" id="16_ihvjp"]
+[ext_resource type="Texture2D" uid="uid://b2u3fq8l57po3" path="res://HUD/icons/RRIOF18.png" id="17_65vjf"]
+[ext_resource type="Script" uid="uid://drhyhxlws6fxu" path="res://HUD/Icon_switcher_button_script.gd" id="17_fc1lb"]
+[ext_resource type="Texture2D" uid="uid://keom47uxld1r" path="res://HUD/icons/RRIOF34.png" id="18_2gu3h"]
+[ext_resource type="Texture2D" uid="uid://cbb6qo482q31q" path="res://HUD/icons/RRIOF498.png" id="18_ba18x"]
+[ext_resource type="Texture2D" uid="uid://d1ge213mx1cul" path="res://HUD/icons/RRIOF17.png" id="19_iob2k"]
+[ext_resource type="Texture2D" uid="uid://dbgvuh0ojqwbo" path="res://HUD/icons/RRIOF514.png" id="20_fc1lb"]
+[ext_resource type="Texture2D" uid="uid://b888lg5wa36nc" path="res://HUD/icons/RRIOF90.png" id="20_g452r"]
+[ext_resource type="Texture2D" uid="uid://yipk3c3yfyt2" path="res://HUD/icons/RRIOF497.png" id="22_84al1"]
+[ext_resource type="Texture2D" uid="uid://c5gyr4g3nmbcs" path="res://HUD/icons/RRIOF570.png" id="24_qg76d"]
+
+[node name="HUD" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kcgbh")
+
+[node name="HudHolder" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009375
+anchor_top = 0.0194444
+anchor_right = 0.224219
+anchor_bottom = 0.581944
+metadata/_edit_use_anchors_ = true
+
+[node name="KnightHud" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="KnightHud2" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="KnightHud3" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="KnightHud4" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="LootTracker" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.96875
+anchor_right = 1.0
+anchor_bottom = 0.0555556
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="LootTracker"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -179.0
+offset_top = 5.0
+offset_right = -55.0
+offset_bottom = 39.0
+grow_horizontal = 0
+texture = ExtResource("7_exiwi")
+patch_margin_left = 3
+patch_margin_top = 11
+patch_margin_right = 2
+patch_margin_bottom = 13
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LootTracker/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
+offset_right = -4.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[right]0[/right]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("12_huo54")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="LootTracker"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = 5.0
+offset_right = -23.0
+offset_bottom = 39.0
+grow_horizontal = 0
+texture = ExtResource("7_exiwi")
+patch_margin_left = 3
+patch_margin_top = 11
+patch_margin_right = 2
+patch_margin_bottom = 13
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LootTracker/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_right = 75.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 25
+text = "$ "
+scroll_active = false
+
+[node name="HUDTray" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUDTray"]
+z_index = -2
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 321.0
+offset_bottom = 720.0
+texture = ExtResource("9_waoyc")
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
+
+[node name="ColorRect" type="ColorRect" parent="HUDTray"]
+z_index = -6
+layout_mode = 0
+offset_right = 322.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="GridContainer" type="GridContainer" parent="HUDTray"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 11.475
+anchor_bottom = 11.475
+offset_left = 23.0
+offset_top = -31.0
+offset_right = 296.0
+offset_bottom = 242.0
+grow_vertical = 2
+columns = 2
+
+[node name="Heal" type="TextureButton" parent="HUDTray/GridContainer"]
+custom_minimum_size = Vector2(136.5, 136.5)
+layout_mode = 2
+texture_normal = ExtResource("15_kcgbh")
+texture_pressed = ExtResource("14_ihvjp")
+texture_hover = ExtResource("16_ihvjp")
+stretch_mode = 0
+script = ExtResource("17_fc1lb")
+mouse_mode = "res://Mouse/heal_bomb.tscn"
+
+[node name="Rriof18" type="Sprite2D" parent="HUDTray/GridContainer/Heal"]
+z_index = 1
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("17_65vjf")
+
+[node name="Rriof19" type="Sprite2D" parent="HUDTray/GridContainer/Heal"]
+z_index = 1
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("18_ba18x")
+
+[node name="Attack" type="TextureButton" parent="HUDTray/GridContainer"]
+custom_minimum_size = Vector2(136.5, 136.5)
+layout_mode = 2
+texture_normal = ExtResource("15_kcgbh")
+texture_pressed = ExtResource("14_ihvjp")
+texture_hover = ExtResource("16_ihvjp")
+stretch_mode = 0
+script = ExtResource("17_fc1lb")
+mouse_mode = "res://player/player_attack.tscn"
+
+[node name="Rriof18" type="Sprite2D" parent="HUDTray/GridContainer/Attack"]
+visible = false
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("18_2gu3h")
+
+[node name="Rriof19" type="Sprite2D" parent="HUDTray/GridContainer/Attack"]
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("20_fc1lb")
+
+[node name="Retreat" type="TextureButton" parent="HUDTray/GridContainer"]
+custom_minimum_size = Vector2(136.5, 136.5)
+layout_mode = 2
+texture_normal = ExtResource("15_kcgbh")
+texture_pressed = ExtResource("14_ihvjp")
+texture_hover = ExtResource("16_ihvjp")
+stretch_mode = 0
+script = ExtResource("17_fc1lb")
+mouse_mode = "res://player/player_attack.tscn"
+
+[node name="Rriof18" type="Sprite2D" parent="HUDTray/GridContainer/Retreat"]
+visible = false
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("19_iob2k")
+
+[node name="Rriof19" type="Sprite2D" parent="HUDTray/GridContainer/Retreat"]
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("22_84al1")
+
+[node name="Collect" type="TextureButton" parent="HUDTray/GridContainer"]
+custom_minimum_size = Vector2(136.5, 136.5)
+layout_mode = 2
+texture_normal = ExtResource("15_kcgbh")
+texture_pressed = ExtResource("14_ihvjp")
+texture_hover = ExtResource("16_ihvjp")
+stretch_mode = 0
+script = ExtResource("17_fc1lb")
+mouse_mode = "res://Mouse/mouse_gold_grabber.tscn"
+
+[node name="Rriof18" type="Sprite2D" parent="HUDTray/GridContainer/Collect"]
+visible = false
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("20_g452r")
+
+[node name="Rriof19" type="Sprite2D" parent="HUDTray/GridContainer/Collect"]
+position = Vector2(67, 57.5)
+scale = Vector2(4, 4)
+texture = ExtResource("24_qg76d")
+
+[connection signal="pressed" from="HUDTray/GridContainer/Heal" to="HUDTray/GridContainer/Heal" method="_on_pressed"]
+[connection signal="pressed" from="HUDTray/GridContainer/Attack" to="HUDTray/GridContainer/Attack" method="_on_pressed"]
+[connection signal="pressed" from="HUDTray/GridContainer/Retreat" to="HUDTray/GridContainer/Retreat" method="_on_pressed"]
+[connection signal="pressed" from="HUDTray/GridContainer/Collect" to="HUDTray/GridContainer/Collect" method="_on_pressed"]

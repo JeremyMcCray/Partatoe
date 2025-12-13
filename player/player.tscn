@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh5orx7ma5ut0"]
+
+[ext_resource type="Script" uid="uid://ca0kk03k2yjak" path="res://player/player.gd" id="1_7t3yn"]
+[ext_resource type="Texture2D" uid="uid://4qu8jb4ms4jq" path="res://Textures/Player/player_sprite.png" id="1_d82q1"]
+[ext_resource type="PackedScene" uid="uid://iqe6c16khvkc" path="res://player/knight.tscn" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://d1uc0yinj4orj" path="res://Scripts/unitCircle.gd" id="3_yw30f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cvec"]
+radius = 23.0
+height = 46.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7t3yn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_d82q1")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1cvec")
+disabled = true
+
+[node name="Spinner" type="Node2D" parent="."]
+script = ExtResource("3_yw30f")
+
+[node name="Knight" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)
+
+[node name="Knight2" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(23, 0)

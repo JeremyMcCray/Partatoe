@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddr332ul8gywn"]
+
+[ext_resource type="Script" uid="uid://dsblrqxp5rpy2" path="res://Mouse/retreat_mouse_mode.gd" id="1_mnh46"]
+
+[node name="retreat_mouse_mode" type="Node"]
+script = ExtResource("1_mnh46")

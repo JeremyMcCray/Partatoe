@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dma7s0pw5kdi4"]
+
+[ext_resource type="Script" uid="uid://wiqcnbngh01u" path="res://Mouse/mouse_gold_grabber.gd" id="1_8eely"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rd7j2"]
+radius = 18.0278
+
+[node name="MouseGoldGrabber" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_8eely")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rd7j2")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
