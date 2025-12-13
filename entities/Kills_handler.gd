@@ -17,7 +17,7 @@ func _ready():
 		chest.connect("found",Callable(self, "track_chests"))
 		chest.connect("searched",Callable(self, "searched_chest"))
 
-func track_kills(killer,killed):
+func track_kills(killer, _killed):
 	var knight_name
 	knights_list = get_tree().get_nodes_in_group("knight")
 	

@@ -39,7 +39,7 @@ func _physics_process(_delta):
 	if attack_chance == 0:
 		attack()
 
-func got_a_kill(killcount):
+func got_a_kill(_killcount):
 	killed.emit()
 
 func _on_hurtbox_body_entered(body):
@@ -73,7 +73,7 @@ func heal_animation():
 	_knight_sprite.modulate = Color.WHITE
 
 
-func take_damage(enemy,damage):
+func take_damage(enemy, damage):
 	print("ouchie")
 	#_knight_sprite.modulate = Color.RED
 	#await get_tree().create_timer(0.1).timeout
@@ -83,11 +83,9 @@ func take_damage(enemy,damage):
 	#health_points -= damage
 	#if health_points <= 0:
 		#_animation_player.play("Death")
-		
-	pass
 
 #------------------Animation Processing
-@onready var _kill_counter_label = $Knight_Sprite2D/KillCounterLabel
+#@onready var _kill_counter_label = $Knight_Sprite2D/KillCounterLabel
 @onready var _knight_sprite = $Knight_Sprite2D
 @onready var _animation_player = $AnimationPlayer
 var uninteruptable_animations = ["Swing_one","Swing_oneLeft","Death","Full Combo","Hurt"]

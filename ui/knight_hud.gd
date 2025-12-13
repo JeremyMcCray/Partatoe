@@ -11,10 +11,10 @@ func sub():
 	$HealthBar.value = party_member.health_points
 	$Name.text = party_member.knight_name
 
-func _on_took_damage(amount:int):
+func _on_took_damage(_amount: int):
 	$HealthBar.value = party_member.health_points
 
-func _on_heal(amount:int):
+func _on_heal(_amount: int):
 	$HealthBar.value = party_member.health_points
 
 func on_kill():

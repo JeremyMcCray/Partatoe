@@ -38,7 +38,6 @@ func _on_hurtbox_body_entered(body):
 		body.take_damage(self,5)
 
 #------------------Animation Processing
-@onready var _skeleton_sprite = $SkeletonSprite2D
 var uninteruptable_animations = ["SwingOne","SwingOneLeft","Death","Full Combo","Hurt"]
 
 func _process_animation():

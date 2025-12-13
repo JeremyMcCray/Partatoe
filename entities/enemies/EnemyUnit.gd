@@ -38,7 +38,7 @@ func take_damage(damage_dealer,damage):
 		queue_free()  # Remove zombie if health is depleted
 
 
-func basic_attack(enemy):
+func basic_attack(_enemy):
 	movement_speed = base_movement_speed/4
 	for i in base_movement_speed/4:
 		movement_speed += 1

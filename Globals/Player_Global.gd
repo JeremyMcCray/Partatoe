@@ -38,6 +38,4 @@ func _ready() -> void:
 	damage_multiplier = 1.0
 	gold = 0
 
-signal change_mouse_mode()
-
 var party = []

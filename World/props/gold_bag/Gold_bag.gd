@@ -1,6 +1,5 @@
 extends Area2D
 @onready var _animation_player = $AnimationPlayer
-@onready var _sprite = $Sprite2D
 @onready var _collision = $CollisionShape2D
 var value = 10
 var grabbed = false
@@ -9,21 +8,18 @@ var grabbed = false
 func _ready():
 	add_to_group("loot")
 	_animation_player.play("gold_spawn")
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#Honestly this should only be called on body/mouse entered and on ready instead of checking every frame, could save insnae peformance
 	if _animation_player.get_playing_speed() > 0 or _animation_player.get_playing_speed() < 0:
 		_collision.disabled = true
 	else:
 		_collision.disabled = false
-	pass
+	
 	if grabbed:
 		if _animation_player.get_playing_speed() == 0:
 			queue_free()
-#on pick up 
+#on pick up
 
 func _on_body_entered(body):
 	if body.is_in_group("knight") and grabbed == false:

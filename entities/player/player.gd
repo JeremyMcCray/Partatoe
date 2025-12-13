@@ -3,7 +3,7 @@ extends CharacterBody2D
 var movement_speed = 200.0
 var health_points = 100
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	print(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y))
 	
 	movement()
