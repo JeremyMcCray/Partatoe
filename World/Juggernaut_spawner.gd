@@ -2,7 +2,7 @@ extends Node
 
 var rng = RandomNumberGenerator.new()
 
-@onready var skeleton_scene = load("res://Enemies/skeleton.tscn")
+@onready var skeleton_scene = load("res://entities/enemies/skeleton.tscn")
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var spawn_distance = 600
 
