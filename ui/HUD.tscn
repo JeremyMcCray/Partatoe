@@ -12,6 +12,7 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kcgbh")
 
+[node name="HudHolder" type="VBoxContainer" parent="."]
 [node name="StatTracker" type="VBoxContainer" parent="." node_paths=PackedStringArray("max_health_tracker", "bonus_damage_tracker", "attack_speed_tracker", "attack_range_tracker", "move_speed_tracker", "health_regen_tracker", "party_size_tracker")]
 anchors_preset = -1
 anchor_left = 0.009375

@@ -3,7 +3,7 @@ extends Enemy_unit
 var rng = 1000
 
 func _ready():
-	WaveManager.kill_all_enemies.connect(kill_self)
+	GameManager.kill_all_enemies.connect(kill_self)
 	super()
 
 func _physics_process(_delta):

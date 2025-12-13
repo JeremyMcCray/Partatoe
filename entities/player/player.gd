@@ -25,3 +25,12 @@ func movement():
 func _ready():
 	add_to_group("player")
 	PlayerGlobal.player = self
+	PlayerGlobal.party = $UnitHolder.get_children()
+
+
+func _on_unit_holder_child_exiting_tree(_node: Node) -> void:
+	update_party()
+	get_tree().create_timer(.2).timeout.connect(self.update_party)
+
+func update_party():
+	PlayerGlobal.update_party($UnitHolder.get_children())
