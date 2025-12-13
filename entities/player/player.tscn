@@ -29,4 +29,25 @@ script = ExtResource("3_yw30f")
 position = Vector2(12, -19)
 
 [node name="Knight2" parent="Spinner" instance=ExtResource("3_g1dw6")]
-position = Vector2(23, 0)
+position = Vector2(12, -19)
+
+[node name="Knight3" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)
+
+[node name="Knight4" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)
+
+[node name="Knight5" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)
+
+[node name="Knight6" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)
+
+[node name="Knight7" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)
+
+[node name="Knight8" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)
+
+[node name="Knight9" parent="Spinner" instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -19)

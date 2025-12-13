@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cnjb1j1rc1g4c" path="res://entities/enemies/Choose_enemy.gd" id="1_q5jnw"]
 [ext_resource type="Script" uid="uid://dmta54unecdet" path="res://entities/enemies/Enemy_follow.gd" id="2_fff0p"]
 
-
 [node name="Basic_choose_and_follow_enemy_state_machine" type="Node" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_jsp4y")
 initial_state = NodePath("Choose_enemy")

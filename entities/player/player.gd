@@ -6,6 +6,7 @@ var health_points = 100
 var interactable: Node2D
 
 func _physics_process(_delta):
+
 	print(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y))
 	
 	if interactable != null && (Input.is_action_just_released("interact")):
@@ -23,3 +24,4 @@ func movement():
 
 func _ready():
 	add_to_group("player")
+	PlayerGlobal.player = self

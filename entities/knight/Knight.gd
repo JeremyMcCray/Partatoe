@@ -1,15 +1,13 @@
 extends CharacterBody2D
 
-signal took_damage
 signal heal_s
 signal killed
 
 @export var movement_speed = 0
 @export var base_movement_speed = 0
-@export var health_points = 200
+@export var health_points = 20
 @export var health_points_max = 200
 @export var menu_animation_path : String
-
 
 @onready var _state_machine
 
@@ -17,7 +15,7 @@ var current_destination : Vector2
 var moving : bool
 var target = null
 var potential_target_list = []
-var attack_chance
+var attack_speed = 2
 var loot_value = 0
 var known_chests : Dictionary
 
@@ -31,13 +29,12 @@ func _ready():
 	_state_machine = machine.instantiate()
 	add_child(_state_machine)
 	knight_name = random_name_list.pick_random()
+	
+	get_tree().create_timer(attack_speed).timeout.connect(self.attack)
+
 
 func _physics_process(_delta):
 	_process_animation_()
-			
-	attack_chance = randi_range(0,50)
-	if attack_chance == 0:
-		attack()
 
 func got_a_kill(_killcount):
 	killed.emit()
@@ -73,16 +70,16 @@ func heal_animation():
 	_knight_sprite.modulate = Color.WHITE
 
 
-func take_damage(enemy, damage):
-	print("ouchie")
-	#_knight_sprite.modulate = Color.RED
-	#await get_tree().create_timer(0.1).timeout
-	#_knight_sprite.modulate = Color.WHITE
-	#took_damage.emit(damage)
-#
-	#health_points -= damage
-	#if health_points <= 0:
-		#_animation_player.play("Death")
+func take_damage(_enemy, damage):
+	_knight_sprite.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	_knight_sprite.modulate = Color.WHITE
+
+	health_points -= damage
+	if health_points <= 0:
+		var main_scene := get_tree().current_scene
+		reparent(main_scene)
+		_animation_player.play("Death")
 
 #------------------Animation Processing
 #@onready var _kill_counter_label = $Knight_Sprite2D/KillCounterLabel
@@ -100,7 +97,7 @@ enum Direction {
 func _process_animation_():
 	if !uninteruptable_animations.has(_animation_player.get_current_animation()):
 		var axis_x = Input.get_axis("left", "right")
-
+		
 		if axis_x == 0:
 			_animation_player.play("Idle")
 		elif axis_x < 0:
@@ -110,10 +107,11 @@ func _process_animation_():
 
 
 func attack():
+	get_tree().create_timer(attack_speed).timeout.connect(self.attack)
 	if !uninteruptable_animations.has(_animation_player.get_current_animation()):
 		var center = get_parent().global_position
 		var is_right_side = global_position.x > center.x
-
+		
 		if is_right_side:
 			_animation_player.play("Swing_one")
 		else:
@@ -121,7 +119,6 @@ func attack():
 
 func die():
 	queue_free()
-
 
 var random_name_list = [
   "Ser Morning",

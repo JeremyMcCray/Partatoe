@@ -6,6 +6,8 @@ signal range_multiplier_updated(new_range_multiplier: int)
 signal damage_multiplier_updated(new_damage_multiplier: int)
 signal gold_updated(new_gold: int)
 
+var player
+
 var health: int:
 	set(new_health):
 		health = new_health
@@ -39,3 +41,6 @@ func _ready() -> void:
 	gold = 50
 
 var party = []
+
+func get_player():
+	return player

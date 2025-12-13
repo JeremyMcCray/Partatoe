@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://jkdegei71rp5"]
+[gd_scene load_steps=16 format=3 uid="uid://jkdegei71rp5"]
 
 [ext_resource type="Script" uid="uid://cqbd3wosl4dnd" path="res://entities/enemies/skeleton/skeleton.gd" id="1_t0mdr"]
 [ext_resource type="Texture2D" uid="uid://wrqnk03rq8sn" path="res://Textures/Epic_OldPrison/Characters/Skeleton 1/with shield/Skeleton 1 - all animations.png" id="2_f7qek"]
 [ext_resource type="Texture2D" uid="uid://d1bsrfv2k3qgm" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Skeleton/Skeleton/Skeleton.png" id="3_0wcag"]
 [ext_resource type="PackedScene" uid="uid://b05knfme5xit2" path="res://entities/enemies/basic_choose_and_follow_enemy_state_machine.tscn" id="3_miras"]
-
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17buq"]
 resource_local_to_scene = true
@@ -389,15 +388,18 @@ _data = {
 &"SwingOneLeft": SubResource("Animation_0wcag")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4p7n"]
+radius = 45.123287
+
 [node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "collision_shape", "_animation_player")]
 scale = Vector2(0.6, 0.6)
-collision_layer = 6
-collision_mask = 6
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_t0mdr")
 base_movement_speed = 50.0
 _sprite = NodePath("SkeletonSprite2D")
 collision_shape = NodePath("CollisionShape2D")
-target_name = "knight"
+target_name = "player"
 _animation_player = NodePath("AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -410,7 +412,6 @@ texture = ExtResource("2_f7qek")
 flip_h = true
 hframes = 18
 vframes = 8
-frame = 60
 
 [node name="SkeletonSprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -439,4 +440,12 @@ libraries = {
 
 [node name="Basic_choose_and_follow_enemy_state_machine" parent="." instance=ExtResource("3_miras")]
 
+[node name="attackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
+shape = SubResource("CircleShape2D_n4p7n")
+
 [connection signal="body_entered" from="SkeletonSprite2D/Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
