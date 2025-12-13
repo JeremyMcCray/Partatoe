@@ -6,18 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dkxknbryhgx2t" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_windows_1.png" id="9_waoyc"]
 [ext_resource type="Script" uid="uid://cj20l2deo2rar" path="res://ui/rich_text_label.gd" id="12_huo54"]
 
-[node name="HUD" type="Control"]
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kcgbh")
 
 [node name="HudHolder" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.009375
 anchor_top = 0.0194444
@@ -38,7 +30,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="LootTracker" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.96875
 anchor_right = 1.0
@@ -109,6 +100,7 @@ text = "$ "
 scroll_active = false
 
 [node name="HUDTray" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
