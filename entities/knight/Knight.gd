@@ -5,7 +5,7 @@ signal killed
 
 @export var movement_speed = 0
 @export var base_movement_speed = 0
-@export var health_points = 200
+@export var health_points = 20
 @export var health_points_max = 200
 @export var menu_animation_path : String
 
@@ -15,7 +15,7 @@ var current_destination : Vector2
 var moving : bool
 var target = null
 var potential_target_list = []
-var attack_speed = .2
+var attack_speed = 2
 var loot_value = 0
 var known_chests : Dictionary
 
@@ -70,16 +70,16 @@ func heal_animation():
 	_knight_sprite.modulate = Color.WHITE
 
 
-func take_damage(enemy, damage):
-	print("ouchie")
-	#_knight_sprite.modulate = Color.RED
-	#await get_tree().create_timer(0.1).timeout
-	#_knight_sprite.modulate = Color.WHITE
-	#took_damage.emit(damage)
-#
-	#health_points -= damage
-	#if health_points <= 0:
-		#_animation_player.play("Death")
+func take_damage(_enemy, damage):
+	_knight_sprite.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	_knight_sprite.modulate = Color.WHITE
+
+	health_points -= damage
+	if health_points <= 0:
+		var main_scene := get_tree().current_scene
+		reparent(main_scene)
+		_animation_player.play("Death")
 
 #------------------Animation Processing
 #@onready var _kill_counter_label = $Knight_Sprite2D/KillCounterLabel

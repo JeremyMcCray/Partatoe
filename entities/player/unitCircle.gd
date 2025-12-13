@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var radius: float = 25.0 # This needs to be increased/decresed with party size. #Mod
-@export var rotation_speed: float = 0.4 # radians per second #Mod
+@export var rotation_speed: float = 1 # radians per second #Mod
 
 var current_angle: float = 0.0
 
@@ -10,6 +10,7 @@ func _process(delta):
 
 	var count = get_child_count()
 
+#Smooth this out when units are removed
 	for i in range(count):
 		var angle = current_angle + (TAU / count) * i
 		var child = get_child(i)
