@@ -7,16 +7,17 @@ var zoom_margin = 0.5
 var zoom_min = .01
 var zoom_max = 2
 
-var zoom_factor = 1.0
+@export var zoom_factor = 1.0
+@export var can_zoom: bool = false
 
 var scrolling = false
 
 func _physics_process(delta):
-	if Input.is_action_pressed("zoom_in"):
-		zoom_factor += .2 * delta
-	elif Input.is_action_pressed("zoom_out"):
-		zoom_factor -= .2 * delta
-		
+	if can_zoom:
+		if Input.is_action_pressed("zoom_in"):
+			zoom_factor += .2 * delta
+		elif Input.is_action_pressed("zoom_out"):
+			zoom_factor -= .2 * delta
 	
 	zoom.x = lerp(zoom.x,zoom.x * zoom_factor, zoom_speed * delta)
 	zoom.y = lerp(zoom.y,zoom.y * zoom_factor, zoom_speed * delta)
