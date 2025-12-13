@@ -1,12 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://x5wtmhmqoxti"]
+[gd_scene load_steps=24 format=3 uid="uid://x5wtmhmqoxti"]
 
-[ext_resource type="Script" uid="uid://bw8m00wkved2l" path="res://Knight.gd" id="1_4pos4"]
+[ext_resource type="Script" path="res://Knight.gd" id="1_4pos4"]
 [ext_resource type="PackedScene" uid="uid://g2inpcce2elc" path="res://State Machines/knight_state_machine.tscn" id="2_n2u01"]
-[ext_resource type="Script" uid="uid://cfg0djqcxyo7r" path="res://Scripts/direction_pointer.gd" id="3_ypmgq"]
-[ext_resource type="Texture2D" uid="uid://bjk1ccjpd1fk0" path="res://Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Priest/Priest/Priest.png" id="4_4pos4"]
-[ext_resource type="Script" uid="uid://bq0kohsd0m8ow" path="res://player/KillCounterLabel_script.gd" id="5_k63cj"]
-[ext_resource type="Script" uid="uid://cfgt5kf3236u" path="res://player/healing_spell.gd" id="6_n2u01"]
-[ext_resource type="Texture2D" uid="uid://x6s6c5il3b4g" path="res://Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Priest/Magic(projectile)/Priest-Heal_Effect.png" id="7_ypmgq"]
+[ext_resource type="Texture2D" uid="uid://bjk1ccjpd1fk0" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Priest/Priest/Priest.png" id="4_4pos4"]
+[ext_resource type="Script" uid="uid://bq0kohsd0m8ow" path="res://Player/KillCounterLabel_script.gd" id="5_k63cj"]
+[ext_resource type="Script" uid="uid://cfgt5kf3236u" path="res://Player/healing_spell.gd" id="6_n2u01"]
+[ext_resource type="Texture2D" uid="uid://x6s6c5il3b4g" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Priest/Magic(projectile)/Priest-Heal_Effect.png" id="7_ypmgq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q782x"]
 resource_local_to_scene = true
@@ -300,7 +299,6 @@ position = Vector2(-0.972726, -25.0289)
 rotation = 0.08674
 scale = Vector2(0.312124, 0.329882)
 skew = -0.00916553
-script = ExtResource("3_ypmgq")
 
 [node name="Knight_Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)

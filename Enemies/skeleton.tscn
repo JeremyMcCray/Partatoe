@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqbd3wosl4dnd" path="res://Enemies/skeleton.gd" id="1_t0mdr"]
 [ext_resource type="Texture2D" uid="uid://wrqnk03rq8sn" path="res://Textures/Epic_OldPrison/Characters/Skeleton 1/with shield/Skeleton 1 - all animations.png" id="2_f7qek"]
-[ext_resource type="Texture2D" uid="uid://d1bsrfv2k3qgm" path="res://Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Skeleton/Skeleton/Skeleton.png" id="3_0wcag"]
+[ext_resource type="Texture2D" uid="uid://d1bsrfv2k3qgm" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Skeleton/Skeleton/Skeleton.png" id="3_0wcag"]
 [ext_resource type="PackedScene" uid="uid://b05knfme5xit2" path="res://State Machines/basic_choose_and_follow_enemy_state_machine.tscn" id="3_miras"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17buq"]

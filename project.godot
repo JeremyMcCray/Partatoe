@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Brotato-Inspired"
-run/main_scene="uid://cnvw72es2hfud"
+run/main_scene="uid://o34bmtwqoj2i"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 

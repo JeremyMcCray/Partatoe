@@ -1,1 +1,7 @@
 res://World/world.tscn
+res://Player/knight.tscn
+res://Enemies/skeleton.tscn
+res://Crypt_tscns/Prayer_room_objects.tscn
+res://World/World_Start_script.gd
+res://Scripts/unitCircle.gd
+res://Scripts/state_machine.tscn

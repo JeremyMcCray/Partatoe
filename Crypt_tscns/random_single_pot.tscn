@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b06002qhfngs3"]
-
-[ext_resource type="Script" uid="uid://c88qyf40pa6q2" path="res://Scripts/Random_single_pot.gd" id="1_brjyh"]
-
-[node name="Sprite2D" type="Sprite2D"]
-script = ExtResource("1_brjyh")

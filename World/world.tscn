@@ -1,23 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://o34bmtwqoj2i"]
+[gd_scene load_steps=8 format=3 uid="uid://o34bmtwqoj2i"]
 
 [ext_resource type="Script" uid="uid://b4bkwcvrjubsg" path="res://World/World_Start_script.gd" id="1_bqlss"]
 [ext_resource type="Script" uid="uid://dsnea34cd2cm7" path="res://World/Juggernaut_spawner.gd" id="5_qkgkq"]
-[ext_resource type="PackedScene" uid="uid://ckvksksjri1ax" path="res://Scripts/kill_handler.tscn" id="7_r036m"]
+[ext_resource type="Texture2D" uid="uid://b1wiecmcgqw14" path="res://Maps/Prayer_room.png" id="6_bkhv4"]
 [ext_resource type="PackedScene" uid="uid://oqqv8ckxcl3c" path="res://HUD/HUD.tscn" id="8_eidgh"]
-[ext_resource type="PackedScene" uid="uid://bh5orx7ma5ut0" path="res://player/player.tscn" id="8_oe8m4"]
-[ext_resource type="PackedScene" uid="uid://deeq0jsia2una" path="res://Crypt_tscns/Prayer_room_objects.tscn" id="11_momk3"]
+[ext_resource type="PackedScene" uid="uid://bh5orx7ma5ut0" path="res://Player/player.tscn" id="8_oe8m4"]
 [ext_resource type="Texture2D" uid="uid://1yn0mcg27p0u" path="res://Textures/Light.png" id="13_6tbjn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbcrp"]
 size = Vector2(1117, 799)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vwqq2"]
-blend_mode = 3
-
 [node name="World" type="Node2D" node_paths=PackedStringArray("fog")]
 z_index = -1
 script = ExtResource("1_bqlss")
-fog = NodePath("fog")
+fog = NodePath("")
 LightTexture = ExtResource("13_6tbjn")
 
 [node name="Skeleton_spawner" type="Node" parent="."]
@@ -27,8 +23,6 @@ script = ExtResource("5_qkgkq")
 wait_time = 3.0
 autostart = true
 
-[node name="Kills_handler" parent="." instance=ExtResource("7_r036m")]
-
 [node name="Map_Size" type="Area2D" parent="." groups=["Map_Size"]]
 collision_layer = 0
 collision_mask = 0
@@ -36,19 +30,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map_Size"]
 position = Vector2(560, 400)
 shape = SubResource("RectangleShape2D_fbcrp")
-
-[node name="fog" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.219608)
-light_mask = 2
-visibility_layer = 2
-z_index = -3
-material = SubResource("CanvasItemMaterial_vwqq2")
-position = Vector2(53, 2)
-centered = false
-
-[node name="Prayer_room_objects" parent="." instance=ExtResource("11_momk3")]
-z_index = -2
-position = Vector2(-25, 1)
 
 [node name="HUD" parent="." instance=ExtResource("8_eidgh")]
 offset_left = -261.0
@@ -61,5 +42,10 @@ position = Vector2(379, 390)
 
 [node name="Player" parent="." instance=ExtResource("8_oe8m4")]
 position = Vector2(560, 395)
+
+[node name="PrayerRoom" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(527, 356)
+texture = ExtResource("6_bkhv4")
 
 [connection signal="timeout" from="Skeleton_spawner/Skeleton_Spawn_Timer" to="Skeleton_spawner" method="_on_timer_timeout"]

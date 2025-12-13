@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgkdnw1o0fwsc"]
 
-[ext_resource type="Script" uid="uid://b6kra06s2ssmy" path="res://zombie/zombie.gd" id="1_anexu"]
+[ext_resource type="Script" uid="uid://b6kra06s2ssmy" path="res://zombie/EnemyUnit.gd" id="1_anexu"]
 [ext_resource type="Texture2D" uid="uid://be36eredu8s2r" path="res://Textures/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="2_o3c21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1ul6"]
