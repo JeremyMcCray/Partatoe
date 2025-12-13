@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://iqe6c16khvkc" path="res://entities/knight/knight.tscn" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://d1uc0yinj4orj" path="res://entities/player/unitCircle.gd" id="3_yw30f"]
 
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cvec"]
 radius = 23.0
 height = 46.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 9
 script = ExtResource("1_7t3yn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,7 +21,6 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1cvec")
-disabled = true
 
 [node name="Spinner" type="Node2D" parent="."]
 script = ExtResource("3_yw30f")

@@ -8,14 +8,9 @@ func _ready():
 	get_tree().connect("node_added", Callable(self, "_on_node_added"))
 	
 	knights_list = get_tree().get_nodes_in_group("knight")
-	var chest_list = get_tree().get_nodes_in_group("chest")
 	
 	for knight in knights_list:
 		knight_to_kills[StringName(knight.name)] = 0
-	
-	for chest in chest_list:
-		chest.connect("found",Callable(self, "track_chests"))
-		chest.connect("searched",Callable(self, "searched_chest"))
 
 func track_kills(killer, _killed):
 	var knight_name
@@ -32,16 +27,6 @@ func track_kills(killer, _killed):
 
 func track_loot(looter,loot):
 	looter.loot_grabbed(loot)
-
-func track_chests(loot):
-	var knight_name
-	knights_list = get_tree().get_nodes_in_group("knight")
-	for knight in knights_list:
-		knight.known_chests[loot] = loot.position
-
-func searched_chest(chest):
-	for knight in knights_list:
-		knight.known_chests.erase(chest)
 
 func _on_node_added(node):
 	if node.is_in_group("enemy"):

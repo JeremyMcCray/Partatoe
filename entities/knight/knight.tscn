@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bwhp4f6b7vq2h" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight.png" id="6_e1t3d"]
 [ext_resource type="Texture2D" uid="uid://x6s6c5il3b4g" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Priest/Magic(projectile)/Priest-Heal_Effect.png" id="6_pav7o"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwa3k"]
 resource_local_to_scene = true
 size = Vector2(34.2769, 41.9158)
@@ -364,7 +363,7 @@ animations = [{
 
 [node name="Knight" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 12
+collision_mask = 4
 script = ExtResource("1_1mggr")
 
 [node name="Knight_Sprite2D" type="Sprite2D" parent="."]
