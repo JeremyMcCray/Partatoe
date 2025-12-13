@@ -35,15 +35,20 @@ func take_damage(damage_dealer,damage):
 		spawn_a_gold_bag()
 		killer = damage_dealer
 		_signal_my_killer.emit(killer,self)
-		queue_free()  # Remove zombie if health is depleted
+		queue_free()
 
-
-func basic_attack(_enemy):
+func basic_attack():
 	movement_speed = base_movement_speed/4
 	for i in base_movement_speed/4:
 		movement_speed += 1
-		#TODO: change this to basic attack
-	_animation_player.play(["SwingOne","SwingOneLeft"].pick_random())
+		if target:
+			var center = target.global_position
+			var is_right_side = global_position.x > center.x
+
+			if is_right_side:
+				_animation_player.play("SwingOneLeft")
+			else:
+				_animation_player.play("SwingOne")
 
 func slow_from_damage():
 	movement_speed = movement_speed/2

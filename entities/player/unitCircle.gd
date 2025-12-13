@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var radius: float = 10.0 # This needs to be increased/decresed with party size. #Mod
-@export var rotation_speed: float = 0.2  # radians per second #Mod
+@export var radius: float = 25.0 # This needs to be increased/decresed with party size. #Mod
+@export var rotation_speed: float = 0.4 # radians per second #Mod
 
 var current_angle: float = 0.0
 
