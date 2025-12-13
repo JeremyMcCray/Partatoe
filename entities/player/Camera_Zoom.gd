@@ -12,6 +12,12 @@ var zoom_factor = 1.0
 var scrolling = false
 
 func _physics_process(delta):
+	if Input.is_action_pressed("zoom_in"):
+		zoom_factor += .2 * delta
+	elif Input.is_action_pressed("zoom_out"):
+		zoom_factor -= .2 * delta
+		
+	
 	zoom.x = lerp(zoom.x,zoom.x * zoom_factor, zoom_speed * delta)
 	zoom.y = lerp(zoom.y,zoom.y * zoom_factor, zoom_speed * delta)
 	
@@ -25,11 +31,6 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_pressed():
 		if !scrolling:
-			if event.as_text() == "Mouse Wheel Up":
-				zoom_factor += .01
-				scrolling = true
-				await get_tree().create_timer(.05).timeout
-				scrolling = false
 			if event.as_text() == "Mouse Wheel Down":
 				zoom_factor -= .01
 				scrolling = true
