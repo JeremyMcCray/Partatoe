@@ -4,7 +4,7 @@ signal health_updated(new_health: int)
 signal speed_updated(new_speed: int)
 signal range_multiplier_updated(new_range_multiplier: int)
 signal damage_multiplier_updated(new_damage_multiplier: int)
-signal money_updated(new_money: int)
+signal gold_updated(new_gold: int)
 
 var health: int:
 	set(new_health):
@@ -26,18 +26,16 @@ var damage_multiplier: float:
 		damage_multiplier = new_damage_multiplier
 		damage_multiplier_updated.emit(damage_multiplier)
 		
-var money: int:
-	set(new_money):
-		money = new_money
-		money_updated.emit(money)
+var gold: int:
+	set(new_gold):
+		gold = new_gold
+		gold_updated.emit(gold)
 
 func _ready() -> void:
 	health = 100
 	speed = 100
 	range_multiplier = 1.0
 	damage_multiplier = 1.0
-	money = 0
-
-signal change_mouse_mode()
+	gold = 0
 
 var party = []
