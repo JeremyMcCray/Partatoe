@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://oqqv8ckxcl3c"]
+[gd_scene load_steps=9 format=3 uid="uid://oqqv8ckxcl3c"]
 
-[ext_resource type="PackedScene" uid="uid://bwjv6vp838wod" path="res://ui/knight_hud.tscn" id="1_fc1lb"]
 [ext_resource type="Script" uid="uid://dy8afl78888tt" path="res://ui/hud.gd" id="1_kcgbh"]
+[ext_resource type="Script" uid="uid://bnwvsgppohm0a" path="res://ui/trackers/stat_tracker.gd" id="2_3q2by"]
+[ext_resource type="Script" uid="uid://yrebmqcle28h" path="res://ui/trackers/tracker_label.gd" id="4_tvtyy"]
 [ext_resource type="Script" uid="uid://cnhcewhwswjno" path="res://ui/item_view_window.gd" id="6_3q2by"]
 [ext_resource type="Texture2D" uid="uid://todj7t4plyuw" path="res://ui/inventory/16x16 Item holder.png" id="7_exiwi"]
 [ext_resource type="FontFile" uid="uid://g4brdtk460oj" path="res://ui/Fonts/alagard.ttf" id="7_tvtyy"]
@@ -11,25 +12,105 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kcgbh")
 
-[node name="HudHolder" type="VBoxContainer" parent="."]
+[node name="StatTracker" type="VBoxContainer" parent="." node_paths=PackedStringArray("max_health_tracker", "bonus_damage_tracker", "attack_speed_tracker", "attack_range_tracker", "move_speed_tracker", "health_regen_tracker", "party_size_tracker")]
 anchors_preset = -1
 anchor_left = 0.009375
 anchor_top = 0.0194444
 anchor_right = 0.224219
 anchor_bottom = 0.581944
+script = ExtResource("2_3q2by")
+max_health_tracker = NodePath("MaxHealthTracker")
+bonus_damage_tracker = NodePath("BonusDamageTracker")
+attack_speed_tracker = NodePath("AttackSpeedTracker")
+attack_range_tracker = NodePath("AttackRangeTracker")
+move_speed_tracker = NodePath("AttackRangeTracker")
+health_regen_tracker = NodePath("HealthRegenTracker")
+party_size_tracker = NodePath("PartySizeTracker")
 metadata/_edit_use_anchors_ = true
 
-[node name="KnightHud" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+[node name="MaxHealthTracker" type="RichTextLabel" parent="StatTracker"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
+text = "Max Health: "
+fit_content = true
+script = ExtResource("4_tvtyy")
+default_message = "Max Health"
 
-[node name="KnightHud2" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+[node name="BonusDamageTracker" type="RichTextLabel" parent="StatTracker"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
+text = "Damage: "
+fit_content = true
+script = ExtResource("4_tvtyy")
+default_message = "Damage"
 
-[node name="KnightHud3" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+[node name="AttackSpeedTracker" type="RichTextLabel" parent="StatTracker"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
+text = "Attack Speed: "
+fit_content = true
+script = ExtResource("4_tvtyy")
+default_message = "Attack Speed"
 
-[node name="KnightHud4" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+[node name="AttackRangeTracker" type="RichTextLabel" parent="StatTracker"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
+text = "Attack Range: "
+fit_content = true
+script = ExtResource("4_tvtyy")
+default_message = "Attack Range"
+
+[node name="MoveSpeedTracker" type="RichTextLabel" parent="StatTracker"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
+text = "Move Speed: "
+fit_content = true
+script = ExtResource("4_tvtyy")
+default_message = "Move Speed"
+
+[node name="HealthRegenTracker" type="RichTextLabel" parent="StatTracker"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
+text = "Health Regen: "
+fit_content = true
+script = ExtResource("4_tvtyy")
+default_message = "Health Regen"
+
+[node name="PartySizeTracker" type="RichTextLabel" parent="StatTracker"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
+text = "Party Size: "
+fit_content = true
+script = ExtResource("4_tvtyy")
+default_message = "Party Size"
 
 [node name="LootTracker" type="TextureRect" parent="."]
 anchors_preset = -1

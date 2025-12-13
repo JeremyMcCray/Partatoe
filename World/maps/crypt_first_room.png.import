@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0ptbdymyvpoq"
-path="res://.godot/imported/crypt_first_room.png-77def67dc0d618e29ef76bff22523848.ctex"
+path="res://.godot/imported/crypt_first_room.png-0044feaf6e8875b9b5447a1a8bb3754b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/maps/crypt_first_room.png"
-dest_files=["res://.godot/imported/crypt_first_room.png-77def67dc0d618e29ef76bff22523848.ctex"]
+source_file="res://world/maps/crypt_first_room.png"
+dest_files=["res://.godot/imported/crypt_first_room.png-0044feaf6e8875b9b5447a1a8bb3754b.ctex"]
 
 [params]
 
