@@ -2,7 +2,7 @@ extends Node2D
 
 var knight_list : Array
 
-@onready var kill_handler_scene = load("res://Scripts/kill_handler.tscn")
+@onready var kill_handler_scene = load("res://entities/kill_handler.tscn")
 var kill_handler
 
 func get_kill_handler():

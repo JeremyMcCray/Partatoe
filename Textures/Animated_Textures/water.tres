@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://counfhxs8cj7l" path="res://Textures/Animated_Textures/Water/tile006.png" id="7_q8axx"]
 [ext_resource type="Texture2D" uid="uid://bb5krqugodtoc" path="res://Textures/Animated_Textures/Water/tile007.png" id="8_8h54l"]
 
+
 [resource]
 frames = 8
 frame_0/texture = ExtResource("1_l8caa")

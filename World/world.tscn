@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://o34bmtwqoj2i"]
 
-[ext_resource type="Script" uid="uid://b4bkwcvrjubsg" path="res://World/World_Start_script.gd" id="1_bqlss"]
-[ext_resource type="Script" uid="uid://dsnea34cd2cm7" path="res://World/Juggernaut_spawner.gd" id="5_qkgkq"]
-[ext_resource type="Texture2D" uid="uid://b1wiecmcgqw14" path="res://Maps/Prayer_room.png" id="6_bkhv4"]
-[ext_resource type="PackedScene" uid="uid://oqqv8ckxcl3c" path="res://HUD/HUD.tscn" id="8_eidgh"]
+[ext_resource type="Script" uid="uid://b4bkwcvrjubsg" path="res://world/World_Start_script.gd" id="1_bqlss"]
+[ext_resource type="Script" uid="uid://dsnea34cd2cm7" path="res://entities/enemies/juggernaut/Juggernaut_spawner.gd" id="5_qkgkq"]
+[ext_resource type="Texture2D" uid="uid://b1wiecmcgqw14" path="res://world/maps/Prayer_room.png" id="6_bkhv4"]
+[ext_resource type="PackedScene" uid="uid://oqqv8ckxcl3c" path="res://ui/HUD.tscn" id="8_eidgh"]
 [ext_resource type="PackedScene" uid="uid://bh5orx7ma5ut0" path="res://entities/player/player.tscn" id="8_oe8m4"]
 [ext_resource type="Texture2D" uid="uid://1yn0mcg27p0u" path="res://Textures/Light.png" id="13_6tbjn"]
 

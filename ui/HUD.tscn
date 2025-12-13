@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://oqqv8ckxcl3c"]
+
+[ext_resource type="PackedScene" uid="uid://bwjv6vp838wod" path="res://ui/knight_hud.tscn" id="1_fc1lb"]
+[ext_resource type="Script" uid="uid://dy8afl78888tt" path="res://ui/hud.gd" id="1_kcgbh"]
+[ext_resource type="Texture2D" uid="uid://todj7t4plyuw" path="res://ui/inventory/16x16 Item holder.png" id="7_exiwi"]
+[ext_resource type="Texture2D" uid="uid://dkxknbryhgx2t" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_windows_1.png" id="9_waoyc"]
+[ext_resource type="Script" uid="uid://cj20l2deo2rar" path="res://ui/rich_text_label.gd" id="12_huo54"]
+
+
+[node name="HUD" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kcgbh")
+
+[node name="HudHolder" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009375
+anchor_top = 0.0194444
+anchor_right = 0.224219
+anchor_bottom = 0.581944
+metadata/_edit_use_anchors_ = true
+
+[node name="KnightHud" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="KnightHud2" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="KnightHud3" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="KnightHud4" parent="HudHolder" instance=ExtResource("1_fc1lb")]
+layout_mode = 2
+
+[node name="LootTracker" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.96875
+anchor_right = 1.0
+anchor_bottom = 0.0555556
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="LootTracker"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -179.0
+offset_top = 5.0
+offset_right = -55.0
+offset_bottom = 39.0
+grow_horizontal = 0
+texture = ExtResource("7_exiwi")
+patch_margin_left = 3
+patch_margin_top = 11
+patch_margin_right = 2
+patch_margin_bottom = 13
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LootTracker/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
+offset_right = -4.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[right]0[/right]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("12_huo54")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="LootTracker"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = 5.0
+offset_right = -23.0
+offset_bottom = 39.0
+grow_horizontal = 0
+texture = ExtResource("7_exiwi")
+patch_margin_left = 3
+patch_margin_top = 11
+patch_margin_right = 2
+patch_margin_bottom = 13
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LootTracker/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_right = 75.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 25
+text = "$ "
+scroll_active = false
+
+[node name="HUDTray" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUDTray"]
+z_index = -2
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 321.0
+offset_bottom = 720.0
+texture = ExtResource("9_waoyc")
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
+
+[node name="ColorRect" type="ColorRect" parent="HUDTray"]
+z_index = -6
+layout_mode = 0
+offset_right = 322.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
