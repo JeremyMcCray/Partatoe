@@ -1,9 +1,11 @@
 extends Node2D
 
+#TODO remove as a global we don't really need this as one?
+
 @export var enemy_minimum_count : int 
 
 var current_wave : int = 1
-var wave_timer = 3333
+var wave_timer = 3333333
 var spawn_enabled = true
 
 var spawn_check_rate = 3.0  # Time interval to check and adjust spawn rates
@@ -14,8 +16,6 @@ var enemy_list = [
 	 "path": "res://entities/enemies/skeleton/skeleton.tscn"
 	}
 ]
-
-signal kill_all_enemies
 
 var rng = RandomNumberGenerator.new()
 
@@ -57,8 +57,9 @@ func spawn_wave(points:int):
 
 func end_wave():
 	spawn_enabled = false
-	kill_all_enemies.emit()
+	GameManager.kill_all_enemies.emit()
 	
+	#SceneLoader.load_scene("TODO ADD THE SHOP PATH")
 	#get_tree().change_scene_to_file("res://World/world.tscn")
 	#Transition to shop scene
 	#Does the party need to be resaved to keep up to date between scene changing? is being in the global enough?

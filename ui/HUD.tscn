@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dkxknbryhgx2t" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_windows_1.png" id="9_waoyc"]
 [ext_resource type="Script" uid="uid://cj20l2deo2rar" path="res://ui/rich_text_label.gd" id="12_huo54"]
 
-
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3

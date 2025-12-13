@@ -1,8 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dw7kjcc73ny6c"]
 
-[ext_resource type="Script" uid="uid://dfjrbokk8o4xm" path="res://world/props/gold_bag/Gold_bag.gd" id="1_a0v3m"]
+[ext_resource type="Script" uid="uid://dfjrbokk8o4xm" path="res://World/props/gold_bag/Gold_bag.gd" id="1_a0v3m"]
 [ext_resource type="Texture2D" uid="uid://djhyvrp4pely1" path="res://Textures/Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="2_nkp1h"]
-
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhm3u"]
 radius = 11.4018

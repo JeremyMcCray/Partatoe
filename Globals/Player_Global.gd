@@ -44,3 +44,10 @@ var party = []
 
 func get_player():
 	return player
+
+func update_party(new_party):
+	self.party = new_party
+	if new_party.size() == 0:
+		#Emit game over signal?
+		GameManager.lost_game()
+		
