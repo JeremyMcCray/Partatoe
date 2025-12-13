@@ -31,19 +31,11 @@ func _on_body_entered(body):
 		_animation_player.speed_scale = 1.75
 		_animation_player.play_backwards("gold_spawn")
 		body.loot_grabbed(self)
-		PlayerGlobal.emit_signal("pick_up_gold", 10)
+		PlayerGlobal.gold += 10
 
 func loot_grabbed():
 	if grabbed == false:
 		grabbed = true
 		_animation_player.speed_scale = 1.75
 		_animation_player.play_backwards("gold_spawn")
-		PlayerGlobal.emit_signal("pick_up_gold", 10)
-
-#
-#func _on_mouse_entered() -> void:
-	#if grabbed == false:
-		#grabbed = true
-		#_animation_player.speed_scale = 1.75
-		#_animation_player.play_backwards("gold_spawn")
-		#PlayerGlobal.emit_signal("pick_up_gold",10)
+		PlayerGlobal.gold += 10
