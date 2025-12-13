@@ -38,7 +38,7 @@ func _ready() -> void:
 	speed = 100
 	range_multiplier = 1.0
 	damage_multiplier = 1.0
-	gold = 0
+	gold = 50
 
 var party = []
 

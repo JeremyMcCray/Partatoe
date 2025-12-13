@@ -1,24 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://oqqv8ckxcl3c"]
+[gd_scene load_steps=8 format=3 uid="uid://oqqv8ckxcl3c"]
 
 [ext_resource type="PackedScene" uid="uid://bwjv6vp838wod" path="res://ui/knight_hud.tscn" id="1_fc1lb"]
 [ext_resource type="Script" uid="uid://dy8afl78888tt" path="res://ui/hud.gd" id="1_kcgbh"]
+[ext_resource type="Script" uid="uid://cnhcewhwswjno" path="res://ui/item_view_window.gd" id="6_3q2by"]
 [ext_resource type="Texture2D" uid="uid://todj7t4plyuw" path="res://ui/inventory/16x16 Item holder.png" id="7_exiwi"]
+[ext_resource type="FontFile" uid="uid://g4brdtk460oj" path="res://ui/Fonts/alagard.ttf" id="7_tvtyy"]
 [ext_resource type="Texture2D" uid="uid://dkxknbryhgx2t" path="res://Textures/HUD/UI/UI-elements-32x32-separated sprites/9SlicedObjects_windows_1.png" id="9_waoyc"]
 [ext_resource type="Script" uid="uid://cj20l2deo2rar" path="res://ui/rich_text_label.gd" id="12_huo54"]
 
-
-[node name="HUD" type="Control"]
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kcgbh")
 
 [node name="HudHolder" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.009375
 anchor_top = 0.0194444
@@ -39,7 +32,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="LootTracker" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.96875
 anchor_right = 1.0
@@ -110,6 +102,7 @@ text = "$ "
 scroll_active = false
 
 [node name="HUDTray" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -133,3 +126,29 @@ layout_mode = 0
 offset_right = 322.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
+
+[node name="ItemViewWindow" type="NinePatchRect" parent="."]
+visible = false
+z_index = -2
+offset_left = 1119.0
+offset_top = 369.0
+offset_right = 1276.0
+offset_bottom = 721.0
+texture = ExtResource("9_waoyc")
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
+script = ExtResource("6_3q2by")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ItemViewWindow"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 11.0
+offset_right = 149.0
+offset_bottom = 313.0
+theme_override_fonts/normal_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_font = ExtResource("7_tvtyy")
+theme_override_fonts/bold_italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/italics_font = ExtResource("7_tvtyy")
+theme_override_fonts/mono_font = ExtResource("7_tvtyy")
