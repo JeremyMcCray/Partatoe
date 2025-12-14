@@ -79,4 +79,3 @@ func update_party(new_party):
 	if new_party.size() == 0:
 		#Emit game over signal?
 		GameManager.lost_game()
-		

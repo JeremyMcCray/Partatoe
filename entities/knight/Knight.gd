@@ -15,7 +15,7 @@ var current_destination : Vector2
 var moving : bool
 var target = null
 var potential_target_list = []
-var attack_speed = .1
+var attack_speed = 1
 var loot_value = 0
 var known_chests : Dictionary
 

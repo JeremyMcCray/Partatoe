@@ -5,7 +5,7 @@ extends Node2D
 @export var enemy_minimum_count : int 
 
 var current_wave : int = 1
-var wave_timer = 200
+var wave_timer = 3
 var spawn_enabled = true
 
 var spawn_check_rate = 3.0  # Time interval to check and adjust spawn rates
