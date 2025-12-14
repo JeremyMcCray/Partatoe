@@ -1,11 +1,13 @@
 extends Item
 
 func update_stats() -> void:
-	PlayerGlobal.bonus_damage += 10
+	PlayerGlobal.max_health += 10
+	PlayerGlobal.health_regen += 1
 
 func get_view() -> String:
 	return """
-	Damage: +10
+	Max Health: +10
+	Health Regen: +1
 
 	Price:  10 $
 	"""

@@ -11,6 +11,15 @@ signal move_speed_updated(new_speed: int)
 signal health_regen_updated(new_health_regen: int)
 signal party_size_updated(new_party_size: int)
 
+signal on_recruit(recruitable_scene)
+
+@onready var recruitables: Dictionary = {
+	"knight": load("res://entities/knight/knight.tscn")
+}
+
+func recruit(key: String) -> void:
+	on_recruit.emit(recruitables[key])
+
 var player
 
 var health: int:
@@ -62,14 +71,14 @@ var party = []
 
 func _ready() -> void:
 	health = 100
-	gold = 50
+	gold = 100
 	max_health = 20
 	bonus_damage = 5
 	attack_speed = 1
 	move_speed = 100
 	health_regen = 1
 	attack_range = 100
-	party_size = 2
+	party_size = 6
 
 func get_player():
 	return player

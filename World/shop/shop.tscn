@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6q64srbeah1d"]
+[gd_scene load_steps=12 format=3 uid="uid://c6q64srbeah1d"]
 
-[ext_resource type="Texture2D" uid="uid://c0ptbdymyvpoq" path="res://World/maps/crypt_first_room.png" id="1_ep6v1"]
-[ext_resource type="Script" uid="uid://4he80ijt0ixq" path="res://World/shop/shop.gd" id="1_q2xa1"]
-[ext_resource type="PackedScene" uid="uid://cq5t7weate4qb" path="res://World/props/chest/chest.tscn" id="3_4y3ck"]
+[ext_resource type="Texture2D" uid="uid://c0ptbdymyvpoq" path="res://world/maps/crypt_first_room.png" id="1_ep6v1"]
+[ext_resource type="Script" uid="uid://4he80ijt0ixq" path="res://world/shop/shop.gd" id="1_q2xa1"]
+[ext_resource type="PackedScene" uid="uid://cq5t7weate4qb" path="res://world/props/chest/chest.tscn" id="3_4y3ck"]
 [ext_resource type="PackedScene" uid="uid://inlni3g8k5cj" path="res://entities/items/sword/sword.tscn" id="4_36yw0"]
 [ext_resource type="PackedScene" uid="uid://oqqv8ckxcl3c" path="res://ui/HUD.tscn" id="5_lf0jy"]
-[ext_resource type="Script" uid="uid://bylhx41griqkv" path="res://World/shop/next_level_area.gd" id="6_q2xa1"]
+[ext_resource type="Script" uid="uid://bylhx41griqkv" path="res://world/shop/next_level_area.gd" id="6_q2xa1"]
+[ext_resource type="PackedScene" uid="uid://dfe8ke2k4yhib" path="res://entities/items/tornado/tornado.tscn" id="7_36yw0"]
+[ext_resource type="PackedScene" uid="uid://y63h8luhmjwf" path="res://entities/items/health_ring/health_ring.tscn" id="8_3noby"]
+[ext_resource type="PackedScene" uid="uid://bh5orx7ma5ut0" path="res://entities/player/player.tscn" id="9_fmr7h"]
+[ext_resource type="PackedScene" uid="uid://hcj2rnoc750y" path="res://entities/items/knight_gem/knight_gem.tscn" id="10_4mkjb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wruu5"]
 radius = 36.0
@@ -13,21 +17,16 @@ radius = 36.0
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_q2xa1")
 
+[node name="Player" parent="." instance=ExtResource("9_fmr7h")]
+position = Vector2(624, 91)
+
 [node name="CryptFirstRoom" type="Sprite2D" parent="."]
 position = Vector2(703, 399)
 texture = ExtResource("1_ep6v1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(600, 130)
-
-[node name="Chest" parent="." node_paths=PackedStringArray("item") instance=ExtResource("3_4y3ck")]
-position = Vector2(391, 367)
-collision_layer = 0
-item = NodePath("Sword")
-
-[node name="Sword" parent="Chest" instance=ExtResource("4_36yw0")]
-position = Vector2(4, 13)
-price = 10
+zoom = Vector2(3, 3)
 
 [node name="HUD" parent="." instance=ExtResource("5_lf0jy")]
 
@@ -49,5 +48,34 @@ text = "Next Round"
 
 [node name="SpawnLocation" type="Marker2D" parent="."]
 position = Vector2(619, 106)
+
+[node name="Chest" parent="." node_paths=PackedStringArray("item") instance=ExtResource("3_4y3ck")]
+position = Vector2(468, 191)
+collision_layer = 0
+item = NodePath("Sword")
+
+[node name="Sword" parent="Chest" instance=ExtResource("4_36yw0")]
+price = 10
+
+[node name="Chest2" parent="." node_paths=PackedStringArray("item") instance=ExtResource("3_4y3ck")]
+position = Vector2(562, 191)
+collision_layer = 0
+item = NodePath("Tornado")
+
+[node name="Tornado" parent="Chest2" instance=ExtResource("7_36yw0")]
+
+[node name="Chest3" parent="." node_paths=PackedStringArray("item") instance=ExtResource("3_4y3ck")]
+position = Vector2(656, 191)
+collision_layer = 0
+item = NodePath("Health_Ring")
+
+[node name="Health_Ring" parent="Chest3" instance=ExtResource("8_3noby")]
+
+[node name="Chest4" parent="." node_paths=PackedStringArray("item") instance=ExtResource("3_4y3ck")]
+position = Vector2(741, 191)
+collision_layer = 0
+item = NodePath("Knight_Gem")
+
+[node name="Knight_Gem" parent="Chest4" instance=ExtResource("10_4mkjb")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
