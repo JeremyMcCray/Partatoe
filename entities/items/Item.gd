@@ -5,6 +5,9 @@ class_name Item extends Node2D
 func get_view() -> String:
 	return ""
 
+func update_stats() -> void:
+	pass
+
 func buy() -> bool:
 	if PlayerGlobal.gold < price:
 		print("Can't buy this")
@@ -12,4 +15,5 @@ func buy() -> bool:
 	
 	PlayerGlobal.gold -= price
 	print("Buying Sword")
+	update_stats()
 	return true

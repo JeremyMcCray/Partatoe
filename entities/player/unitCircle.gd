@@ -5,12 +5,19 @@ extends Node2D
 
 var current_angle: float = 0.0
 
+func _ready() -> void:
+	PlayerGlobal.on_recruit.connect(add_unit)
+
+func add_unit(unit_scene) -> void:
+	var unit = unit_scene.instantiate()
+	add_child(unit)
+
 func _process(delta):
 	current_angle += rotation_speed * delta
 
 	var count = get_child_count()
 
-#Smooth this out when units are removed
+	#Smooth this out when units are removed
 	for i in range(count):
 		var angle = current_angle + (TAU / count) * i
 		var child = get_child(i)
