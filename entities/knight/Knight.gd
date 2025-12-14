@@ -15,7 +15,7 @@ var current_destination : Vector2
 var moving : bool
 var target = null
 var potential_target_list = []
-var attack_speed = 2
+var attack_speed = .1
 var loot_value = 0
 var known_chests : Dictionary
 
@@ -32,7 +32,6 @@ func _ready():
 	
 	get_tree().create_timer(attack_speed).timeout.connect(self.attack)
 
-
 func _physics_process(_delta):
 	_process_animation_()
 
@@ -45,7 +44,7 @@ func _on_hurtbox_body_entered(body):
 
 func loot_grabbed(loot):
 	loot_value += loot.value
-	
+
 func healing_potion_grabbed(potion):
 	if health_points < health_points_max:
 		health_points += potion.healing
@@ -57,6 +56,9 @@ func heal(heal_amount:int):
 	heal_animation()
 	
 	health_points += heal_amount
+	
+	$Control/HealthBar.value = health_points
+	
 	if health_points > health_points_max:
 		health_points = health_points_max
 	heal_s.emit(heal_amount)
@@ -74,8 +76,11 @@ func take_damage(_enemy, damage):
 	_knight_sprite.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	_knight_sprite.modulate = Color.WHITE
-
+	
 	health_points -= damage
+	
+	$Control/HealthBar.value = health_points
+	
 	if health_points <= 0:
 		var main_scene := get_tree().current_scene
 		reparent(main_scene)
@@ -107,7 +112,6 @@ func _process_animation_():
 
 
 func attack():
-	get_tree().create_timer(attack_speed).timeout.connect(self.attack)
 	if !uninteruptable_animations.has(_animation_player.get_current_animation()):
 		var center = get_parent().global_position
 		var is_right_side = global_position.x > center.x
@@ -116,6 +120,7 @@ func attack():
 			_animation_player.play("Swing_one")
 		else:
 			_animation_player.play("Swing_oneLeft")
+	get_tree().create_timer(attack_speed).timeout.connect(self.attack) 
 
 func die():
 	queue_free()

@@ -5,7 +5,7 @@ extends Node2D
 @export var enemy_minimum_count : int 
 
 var current_wave : int = 1
-var wave_timer = 3333333
+var wave_timer = 200
 var spawn_enabled = true
 
 var spawn_check_rate = 3.0  # Time interval to check and adjust spawn rates
@@ -59,7 +59,7 @@ func end_wave():
 	spawn_enabled = false
 	GameManager.kill_all_enemies.emit()
 	
-	#SceneLoader.load_scene("TODO ADD THE SHOP PATH")
+	SceneLoader.load_scene("res://World/shop/shop.tscn")
 	#get_tree().change_scene_to_file("res://World/world.tscn")
 	#Transition to shop scene
 	#Does the party need to be resaved to keep up to date between scene changing? is being in the global enough?

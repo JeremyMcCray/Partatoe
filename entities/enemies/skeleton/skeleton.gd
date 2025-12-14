@@ -31,6 +31,5 @@ func _process_animation():
 func _on_attack_area_body_entered(_body: Node2D) -> void:
 		basic_attack()
 
-
 func kill_self():
 	queue_free()

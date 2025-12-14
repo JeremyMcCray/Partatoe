@@ -1,24 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://x5wtmhmqoxti"]
+[gd_scene load_steps=22 format=3 uid="uid://x5wtmhmqoxti"]
 
-[ext_resource type="Script" path="res://Knight.gd" id="1_4pos4"]
+[ext_resource type="Script" uid="uid://ceur2mhuah683" path="res://entities/knight/Knight.gd" id="1_cyapn"]
 [ext_resource type="PackedScene" uid="uid://g2inpcce2elc" path="res://entities/knight/states/knight_state_machine.tscn" id="2_n2u01"]
 [ext_resource type="Texture2D" uid="uid://bjk1ccjpd1fk0" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Priest/Priest/Priest.png" id="4_4pos4"]
 [ext_resource type="Script" uid="uid://bq0kohsd0m8ow" path="res://entities/player/KillCounterLabel_script.gd" id="5_k63cj"]
 [ext_resource type="Script" uid="uid://cfgt5kf3236u" path="res://entities/player/healing_spell.gd" id="6_n2u01"]
 [ext_resource type="Texture2D" uid="uid://x6s6c5il3b4g" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Priest/Magic(projectile)/Priest-Heal_Effect.png" id="7_ypmgq"]
 
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q782x"]
 resource_local_to_scene = true
 radius = 11.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5oifw"]
-resource_local_to_scene = true
-radius = 120.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikutc"]
-resource_local_to_scene = true
-size = Vector2(56.5227, 30.4762)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fnvkr"]
 font_size = 50
@@ -276,48 +267,20 @@ animations = [{
 [node name="Mage" type="CharacterBody2D"]
 collision_layer = 6
 collision_mask = 6
-script = ExtResource("1_4pos4")
-menu_animation_path = "res://HUD/mage_menu_animation.tscn"
+script = ExtResource("1_cyapn")
 
 [node name="Body" type="CollisionShape2D" parent="."]
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("CapsuleShape2D_q782x")
 
-[node name="FogOfWar" type="Area2D" parent="."]
-
-[node name="Fog_of_war_range" type="CollisionShape2D" parent="FogOfWar"]
-modulate = Color(0, 0, 0, 1)
-light_mask = 2
-visibility_layer = 2
-shape = SubResource("CircleShape2D_5oifw")
-
 [node name="Knight_State_Machine" parent="." instance=ExtResource("2_n2u01")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-0.972726, -25.0289)
-rotation = 0.08674
-scale = Vector2(0.312124, 0.329882)
-skew = -0.00916553
 
 [node name="Knight_Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_4pos4")
 hframes = 9
 vframes = 10
-
-[node name="Hurtbox" type="Area2D" parent="Knight_Sprite2D"]
-position = Vector2(0, -1.4)
-scale = Vector2(0.7, 0.699999)
-collision_layer = 5
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knight_Sprite2D/Hurtbox"]
-position = Vector2(-22.8571, 28.6667)
-rotation = 3.14122
-shape = SubResource("RectangleShape2D_ikutc")
-disabled = true
 
 [node name="KillCounterLabel" type="Label" parent="Knight_Sprite2D"]
 offset_left = -1.4
@@ -346,6 +309,21 @@ sprite_frames = SubResource("SpriteFrames_nqqe3")
 animation = &"heal"
 frame_progress = 0.284325
 
-[connection signal="moving" from="Knight_State_Machine" to="Sprite2D" method="_on_knight_state_machine_moving"]
-[connection signal="thinking" from="Knight_State_Machine" to="Sprite2D" method="_on_knight_state_machine_thinking"]
-[connection signal="body_entered" from="Knight_Sprite2D/Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -35.0
+offset_right = 41.0
+offset_bottom = 5.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+custom_minimum_size = Vector2(30, 2)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 14.0
+offset_bottom = 20.0
+max_value = 200.0
+value = 20.0
+show_percentage = false
