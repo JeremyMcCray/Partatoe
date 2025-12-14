@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=12 format=3 uid="uid://c6q64srbeah1d"]
 
 [ext_resource type="Texture2D" uid="uid://c0ptbdymyvpoq" path="res://world/maps/crypt_first_room.png" id="1_ep6v1"]
@@ -48,6 +49,7 @@ text = "Next Round"
 
 [node name="SpawnLocation" type="Marker2D" parent="."]
 position = Vector2(619, 106)
+
 
 [node name="Chest" parent="." node_paths=PackedStringArray("item") instance=ExtResource("3_4y3ck")]
 position = Vector2(468, 191)
