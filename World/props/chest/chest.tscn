@@ -12,11 +12,10 @@ collision_mask = 16
 script = ExtResource("1_usgag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 13.5)
 shape = SubResource("RectangleShape2D_dnmo1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(-2, -13)
 texture = ExtResource("2_uo5cc")
 hframes = 7
 vframes = 8

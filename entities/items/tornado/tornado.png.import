@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjoalh1l7a5b4"
-path="res://.godot/imported/urand_mage.png-3be7ccf42026b29d2f0736885e9b6f3c.ctex"
+uid="uid://da3iy21ix3bpx"
+path="res://.godot/imported/tornado.png-25e21549492bab713a8766f815a47ac2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Upgrades/urand_mage.png"
-dest_files=["res://.godot/imported/urand_mage.png-3be7ccf42026b29d2f0736885e9b6f3c.ctex"]
+source_file="res://entities/items/tornado/tornado.png"
+dest_files=["res://.godot/imported/tornado.png-25e21549492bab713a8766f815a47ac2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da3iy21ix3bpx"
-path="res://.godot/imported/tornado.png-84bd3c437635d0edcdda9f5a76ecfe31.ctex"
+uid="uid://dyno3sli6m7an"
+path="res://.godot/imported/Gem_blue.png-be468fd67d680905a25eba73fbfe8cb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/tornado.png"
-dest_files=["res://.godot/imported/tornado.png-84bd3c437635d0edcdda9f5a76ecfe31.ctex"]
+source_file="res://entities/items/knight_gem/Gem_blue.png"
+dest_files=["res://.godot/imported/Gem_blue.png-be468fd67d680905a25eba73fbfe8cb5.ctex"]
 
 [params]
 

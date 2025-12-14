@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxbfm1djl16j0"
-path="res://.godot/imported/sword.png-979d87b34967510545433b49f3482194.ctex"
+uid="uid://cjoalh1l7a5b4"
+path="res://.godot/imported/urand_mage.png-ab9436236529cb6a8f4f94fcd2ec5eb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/sword.png"
-dest_files=["res://.godot/imported/sword.png-979d87b34967510545433b49f3482194.ctex"]
+source_file="res://entities/items/health_ring/urand_mage.png"
+dest_files=["res://.godot/imported/urand_mage.png-ab9436236529cb6a8f4f94fcd2ec5eb8.ctex"]
 
 [params]
 
