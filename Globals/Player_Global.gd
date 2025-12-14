@@ -61,7 +61,6 @@ var party_size: int:
 func _ready() -> void:
 	health = 100
 	gold = 50
-	
 	max_health = 20
 	bonus_damage = 5
 	attack_speed = 1

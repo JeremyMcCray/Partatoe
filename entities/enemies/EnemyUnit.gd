@@ -8,6 +8,7 @@ class_name Enemy_unit
 @export var collision_shape : CollisionShape2D
 @export var target_name : String
 @export var _animation_player : AnimationPlayer
+@export var attack_time : int = 1
 
 @onready var _state_machine
 
