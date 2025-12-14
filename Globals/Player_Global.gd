@@ -58,6 +58,8 @@ var party_size: int:
 		party_size = new_party_size
 		party_size_updated.emit(party_size)
 
+var party = []
+
 func _ready() -> void:
 	health = 100
 	gold = 50
@@ -68,8 +70,6 @@ func _ready() -> void:
 	health_regen = 1
 	attack_range = 100
 	party_size = 2
-
-var party = []
 
 func get_player():
 	return player
