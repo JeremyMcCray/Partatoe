@@ -1,3 +1,4 @@
+#unit_circle
 extends Node2D
 
 @export var radius: float = 25.0 # This needs to be increased/decresed with party size. #Mod
@@ -7,9 +8,11 @@ var current_angle: float = 0.0
 
 func _ready() -> void:
 	PlayerGlobal.on_recruit.connect(add_unit)
+	$PartySpawner.spawn_party()
 
-func add_unit(unit_scene) -> void:
-	var unit = unit_scene.instantiate()
+func add_unit(data: UnitData) -> void:
+	var unit = preload("res://entities/knight/knight.tscn").instantiate()
+	unit.data = data
 	add_child(unit)
 
 func _process(delta):

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://i1j0dp7m4n4y"]
+
+[ext_resource type="Script" uid="uid://girjq6l4os22" path="res://entities/party_spawner.gd" id="1_fw0nt"]
+
+[node name="PartySpawner" type="Node2D"]
+script = ExtResource("1_fw0nt")

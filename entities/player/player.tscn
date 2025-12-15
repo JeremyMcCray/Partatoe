@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh5orx7ma5ut0"]
+[gd_scene load_steps=6 format=3 uid="uid://bh5orx7ma5ut0"]
 
 [ext_resource type="Script" uid="uid://ca0kk03k2yjak" path="res://entities/player/player.gd" id="1_7t3yn"]
 [ext_resource type="Texture2D" uid="uid://4qu8jb4ms4jq" path="res://Textures/Player/player_sprite.png" id="1_d82q1"]
-[ext_resource type="PackedScene" uid="uid://iqe6c16khvkc" path="res://entities/knight/knight.tscn" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://d1uc0yinj4orj" path="res://entities/player/unitCircle.gd" id="3_yw30f"]
-[ext_resource type="PackedScene" uid="uid://x5wtmhmqoxti" path="res://entities/player/mage.tscn" id="5_fkugw"]
+[ext_resource type="PackedScene" uid="uid://i1j0dp7m4n4y" path="res://entities/party_spawner.tscn" id="5_fkugw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cvec"]
 radius = 23.0
@@ -16,7 +15,6 @@ collision_mask = 9
 script = ExtResource("1_7t3yn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("1_d82q1")
 hframes = 2
 
@@ -26,24 +24,6 @@ shape = SubResource("CapsuleShape2D_1cvec")
 [node name="UnitHolder" type="Node2D" parent="."]
 script = ExtResource("3_yw30f")
 
-[node name="Knight" parent="UnitHolder" instance=ExtResource("3_g1dw6")]
-position = Vector2(12, -19)
-
-[node name="Mage" parent="UnitHolder" instance=ExtResource("5_fkugw")]
-
-[node name="Knight2" parent="UnitHolder" instance=ExtResource("3_g1dw6")]
-position = Vector2(12, -19)
-
-[node name="Mage2" parent="UnitHolder" instance=ExtResource("5_fkugw")]
-
-[node name="Knight3" parent="UnitHolder" instance=ExtResource("3_g1dw6")]
-position = Vector2(12, -19)
-
-[node name="Mage3" parent="UnitHolder" instance=ExtResource("5_fkugw")]
-
-[node name="Knight4" parent="UnitHolder" instance=ExtResource("3_g1dw6")]
-position = Vector2(12, -19)
-
-[node name="Mage4" parent="UnitHolder" instance=ExtResource("5_fkugw")]
+[node name="PartySpawner" parent="UnitHolder" instance=ExtResource("5_fkugw")]
 
 [connection signal="child_exiting_tree" from="UnitHolder" to="." method="_on_unit_holder_child_exiting_tree"]

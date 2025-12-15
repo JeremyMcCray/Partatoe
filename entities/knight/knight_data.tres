@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=2 format=3 uid="uid://cgdgrbh7qxht1"]
+
+[ext_resource type="Script" uid="uid://dgwxmq3tm6yc5" path="res://entities/unit_data.gd" id="1_aimxm"]
+
+[resource]
+script = ExtResource("1_aimxm")
+unit_name = "placeholder"
+health_points = 50
+health_points_max = 200
+attack_speed = 1
+metadata/_custom_type_script = "uid://dgwxmq3tm6yc5"

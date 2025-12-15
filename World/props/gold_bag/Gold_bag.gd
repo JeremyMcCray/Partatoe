@@ -27,7 +27,6 @@ func _on_body_entered(body):
 		grabbed = true
 		_animation_player.speed_scale = 1.75
 		_animation_player.play_backwards("gold_spawn")
-		body.loot_grabbed(self)
 		PlayerGlobal.gold += 10
 
 func loot_grabbed():

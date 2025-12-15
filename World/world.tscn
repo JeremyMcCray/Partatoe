@@ -31,10 +31,6 @@ position = Vector2(560, 400)
 shape = SubResource("RectangleShape2D_fbcrp")
 
 [node name="HUD" parent="." instance=ExtResource("8_eidgh")]
-offset_left = -261.0
-offset_top = 30.0
-offset_right = 1019.0
-offset_bottom = 750.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(379, 390)
