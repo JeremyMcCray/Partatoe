@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6la6dgbecd1r" path="res://Textures/TileSet-PixelTopDown/TX Props.png" id="2_uo5cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnmo1"]
-size = Vector2(34, 35)
+size = Vector2(75, 75)
 
 [node name="Chest" type="Area2D" groups=["chest"]]
 collision_layer = 8
