@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://iqe6c16khvkc"]
 
-[ext_resource type="Script" uid="uid://ceur2mhuah683" path="res://entities/knight/Knight.gd" id="1_1mggr"]
+[ext_resource type="Script" uid="uid://ceur2mhuah683" path="res://entities/knight/knight.gd" id="1_1mggr"]
 [ext_resource type="Resource" uid="uid://cgdgrbh7qxht1" path="res://entities/knight/knight_data.tres" id="2_3qtxb"]
 [ext_resource type="Script" uid="uid://bq0kohsd0m8ow" path="res://entities/player/KillCounterLabel_script.gd" id="3_7ad5t"]
 [ext_resource type="Texture2D" uid="uid://bwhp4f6b7vq2h" path="res://Textures/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight.png" id="6_e1t3d"]
