@@ -8,9 +8,8 @@ extends Area2D
 var looted: bool = false
 
 func _on_body_entered(body):
-	
 	if item != null:
-		UiManager.on_item_viewed.emit(item.get_view())
+		UiManager.viewed_item = item
 		body.interactable = self
 	
 	#if looted == false:
@@ -18,8 +17,12 @@ func _on_body_entered(body):
 		#collision.set_deferred("disabled", true)
 		#sprite.frame = 8
 
-func _on_body_exited(_body: Node2D) -> void:
-	UiManager.clear_item_view()
+func _on_body_exited(body: Node2D) -> void:
+	if UiManager.viewed_item == item:
+		UiManager.clear_item_view()
+	
+	if body.interactable == self:
+		body.interactable = null
 
 func use():
 	if item != null:
