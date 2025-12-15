@@ -6,7 +6,6 @@ extends Node2D
 
 @export var position_smooth_speed := 10.0
 
-
 var current_angle: float = 0.0
 
 func _ready() -> void:
@@ -42,11 +41,9 @@ func _process(delta):
 
 	_update_depth_order(units)
 
-
 func _update_depth_order(units: Array[CharacterBody2D]) -> void:
 	for unit in units:
 		unit.z_index = unit.global_position.y
-
 
 func _get_units() -> Array[CharacterBody2D]:
 	var units: Array[CharacterBody2D] = []

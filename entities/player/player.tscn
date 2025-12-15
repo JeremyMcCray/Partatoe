@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca0kk03k2yjak" path="res://entities/player/player.gd" id="1_7t3yn"]
 [ext_resource type="Texture2D" uid="uid://4qu8jb4ms4jq" path="res://Textures/Player/player_sprite.png" id="1_d82q1"]
-[ext_resource type="Script" uid="uid://d1uc0yinj4orj" path="res://entities/player/unitCircle.gd" id="3_yw30f"]
+[ext_resource type="Script" uid="uid://d1uc0yinj4orj" path="res://entities/player/unit_circle.gd" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://iqe6c16khvkc" path="res://entities/knight/knight.tscn" id="5_8fjmc"]
 [ext_resource type="PackedScene" uid="uid://i1j0dp7m4n4y" path="res://entities/party_spawner.tscn" id="5_fkugw"]
 
