@@ -4,6 +4,9 @@ extends Node2D
 @export var radius: float = 25.0 # This needs to be increased/decresed with party size. #Mod
 @export var rotation_speed: float = 1 # radians per second #Mod
 
+@export var position_smooth_speed := 10.0
+
+
 var current_angle: float = 0.0
 
 func _ready() -> void:
@@ -18,21 +21,36 @@ func add_unit(data: UnitData) -> void:
 func _process(delta):
 	current_angle += rotation_speed * delta
 
-	var count = get_child_count()
+	var units := _get_units()
+	var count := units.size()
+	if count == 0:
+		return
 
-	#Smooth this out when units are removed
 	for i in range(count):
-		var angle = current_angle + (TAU / count) * i
-		var child = get_child(i)
+		var unit := units[i]
 
-		# Position the child on the circle
-		child.position = Vector2(cos(angle), sin(angle)) * radius
+		var target_angle := current_angle + (TAU / count) * i
+		var target_pos := Vector2(cos(target_angle), sin(target_angle)) * radius
 
-		# Ensure upright sprite (no rotation)
-		child.rotation = 0
+		# Smooth movement instead of snapping
+		unit.position = unit.position.lerp(
+			target_pos,
+			1.0 - exp(-position_smooth_speed * delta)
+		)
 
-	_update_depth_order()
+		unit.rotation = 0
 
-func _update_depth_order():
+	_update_depth_order(units)
+
+
+func _update_depth_order(units: Array[CharacterBody2D]) -> void:
+	for unit in units:
+		unit.z_index = unit.global_position.y
+
+
+func _get_units() -> Array[CharacterBody2D]:
+	var units: Array[CharacterBody2D] = []
 	for child in get_children():
-		child.z_index = child.global_position.y
+		if child is CharacterBody2D:
+			units.append(child)
+	return units
