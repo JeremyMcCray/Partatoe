@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=3 uid="uid://c6q64srbeah1d"]
+=======
+[gd_scene load_steps=12 format=3 uid="uid://c6q64srbeah1d"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://c0ptbdymyvpoq" path="res://world/maps/crypt_first_room.png" id="1_ep6v1"]
 [ext_resource type="PackedScene" uid="uid://bh5orx7ma5ut0" path="res://entities/player/player.tscn" id="2_4y3ck"]
@@ -18,7 +22,32 @@ texture = ExtResource("1_ep6v1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(600, 130)
+<<<<<<< Updated upstream
 zoom = Vector2(3.5, 3.5)
+=======
+zoom = Vector2(3, 3)
+
+[node name="HUD" parent="." instance=ExtResource("5_lf0jy")]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1088, 164)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("6_q2xa1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wruu5")
+
+[node name="Label" type="Label" parent="Area2D"]
+offset_left = -45.0
+offset_top = -68.0
+offset_right = 47.0
+offset_bottom = -45.0
+text = "Next Round"
+
+[node name="SpawnLocation" type="Marker2D" parent="."]
+position = Vector2(619, 106)
+>>>>>>> Stashed changes
 
 [node name="Chest" parent="." node_paths=PackedStringArray("item") instance=ExtResource("3_4y3ck")]
 position = Vector2(606, 169)

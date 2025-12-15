@@ -6,8 +6,7 @@
 [ext_resource type="Script" uid="uid://d1uc0yinj4orj" path="res://entities/player/unitCircle.gd" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cvec"]
-radius = 23.0
-height = 46.0
+height = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 16

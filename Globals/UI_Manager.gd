@@ -2,5 +2,14 @@ extends Node
 
 signal on_item_viewed(item_info)
 
+var viewed_item: Item:
+	set(new_item):
+		viewed_item = new_item
+		
+		if new_item != null:
+			on_item_viewed.emit(viewed_item.get_view())
+		else:
+			on_item_viewed.emit("")
+
 func clear_item_view() -> void:
-	on_item_viewed.emit("")
+	viewed_item = null
