@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6q64srbeah1d"]
+[gd_scene load_steps=12 format=3 uid="uid://c6q64srbeah1d"]
 
-[ext_resource type="Texture2D" uid="uid://c0ptbdymyvpoq" path="res://World/maps/crypt_first_room.png" id="1_ep6v1"]
-[ext_resource type="PackedScene" uid="uid://cq5t7weate4qb" path="res://World/props/chest/chest.tscn" id="3_4y3ck"]
+[ext_resource type="Texture2D" uid="uid://c0ptbdymyvpoq" path="res://world/maps/crypt_first_room.png" id="1_ep6v1"]
+[ext_resource type="Script" uid="uid://4he80ijt0ixq" path="res://world/shop/shop.gd" id="1_q2xa1"]
+[ext_resource type="PackedScene" uid="uid://cq5t7weate4qb" path="res://world/props/chest/chest.tscn" id="3_4y3ck"]
 [ext_resource type="PackedScene" uid="uid://inlni3g8k5cj" path="res://entities/items/sword/sword.tscn" id="4_36yw0"]
 [ext_resource type="PackedScene" uid="uid://oqqv8ckxcl3c" path="res://ui/HUD.tscn" id="5_lf0jy"]
 [ext_resource type="Script" uid="uid://bylhx41griqkv" path="res://World/shop/next_level_area.gd" id="6_q2xa1"]

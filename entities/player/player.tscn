@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://i1j0dp7m4n4y" path="res://entities/party_spawner.tscn" id="5_fkugw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cvec"]
-radius = 23.0
-height = 46.0
+radius = 13.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 16
