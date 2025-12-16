@@ -1,11 +1,8 @@
 extends Node2D
 
-#TODO remove as a global we don't really need this as one?
-
 @export var enemy_minimum_count : int 
 
-var current_wave : int = 1
-var wave_timer = 3
+var wave_timer = 35
 var spawn_enabled = true
 
 var spawn_check_rate = 3.0  # Time interval to check and adjust spawn rates
@@ -20,17 +17,16 @@ var enemy_list = [
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-		wave_timer += current_wave
-		
-		#every 3 seconds run spawn wave 
-		get_tree().create_timer(spawn_check_rate).timeout.connect(self.spawn_decider)
-		#Time out the wave after wave_timer
-		get_tree().create_timer(wave_timer).timeout.connect(self.end_wave)
-		
+	wave_timer += GameManager.current_wave
+	
+	#every 3 seconds run spawn wave 
+	get_tree().create_timer(spawn_check_rate).timeout.connect(self.spawn_decider)
+	#Time out the wave after wave_timer
+	get_tree().create_timer(wave_timer).timeout.connect(self.end_wave)
 
 func spawn_decider():
 	if spawn_enabled:
-		spawn_wave(current_wave * 2 + randi_range(1,4))
+		spawn_wave(GameManager.current_wave * 2 + randi_range(1,4))
 		get_tree().create_timer(spawn_check_rate).timeout.connect(self.spawn_decider)
 		#Also trigger whenever there aren't enough enemies
 		#Mimimum is wavesize * 2
@@ -58,6 +54,7 @@ func spawn_wave(points:int):
 func end_wave():
 	spawn_enabled = false
 	GameManager.kill_all_enemies.emit()
+	GameManager.current_wave += 1
 	
 	SceneLoader.load_scene("res://World/shop/shop.tscn")
 	#get_tree().change_scene_to_file("res://World/world.tscn")

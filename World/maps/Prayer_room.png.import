@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1wiecmcgqw14"
-path="res://.godot/imported/Prayer_room.png-2702b6b5b54f50091b5b59cb037e5021.ctex"
+path="res://.godot/imported/Prayer_room.png-ce21e436f9aadf35f9b3434248005df6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/maps/Prayer_room.png"
-dest_files=["res://.godot/imported/Prayer_room.png-2702b6b5b54f50091b5b59cb037e5021.ctex"]
+source_file="res://World/maps/Prayer_room.png"
+dest_files=["res://.godot/imported/Prayer_room.png-ce21e436f9aadf35f9b3434248005df6.ctex"]
 
 [params]
 

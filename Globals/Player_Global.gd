@@ -14,13 +14,22 @@ signal party_size_updated(new_party_size: int)
 signal on_recruit(recruitable_scene)
 
 @onready var recruitables: Dictionary = {
-	"knight": load("res://entities/knight/knight.tscn")
+	"knight": load("res://entities/knight/knight_data.tres")
 }
 
-func recruit(key: String) -> void:
-	on_recruit.emit(recruitables[key])
-
 var player
+
+var player_data : UnitData
+
+var party_data : Array[UnitData] = []
+
+func recruit(key: String) -> void:
+	var data : UnitData = recruitables[key].duplicate() #Duplicate makes it so each knight has thier own stats and they aren't shared.
+	add_party_member(data)
+	on_recruit.emit(data)
+
+func add_party_member(data: UnitData) -> void:
+	party_data.append(data)
 
 var health: int:
 	set(new_health):
@@ -67,8 +76,6 @@ var party_size: int:
 		party_size = new_party_size
 		party_size_updated.emit(party_size)
 
-var party = []
-
 func _ready() -> void:
 	health = 100
 	gold = 100
@@ -82,9 +89,3 @@ func _ready() -> void:
 
 func get_player():
 	return player
-
-func update_party(new_party):
-	self.party = new_party
-	if new_party.size() == 0:
-		#Emit game over signal?
-		GameManager.lost_game()

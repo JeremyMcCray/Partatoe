@@ -10,10 +10,8 @@ func update_stats() -> void:
 
 func buy() -> bool:
 	if PlayerGlobal.gold < price:
-		print("Can't buy this")
 		return false
 	
 	PlayerGlobal.gold -= price
-	print("Buying Sword")
 	update_stats()
 	return true

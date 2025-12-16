@@ -3,31 +3,38 @@ extends CharacterBody2D
 signal heal_s
 signal killed
 
-@export var movement_speed = 0
-@export var base_movement_speed = 0
-@export var health_points = 20
-@export var health_points_max = 200
-@export var menu_animation_path : String
+var movement_speed = 0
+var base_movement_speed = 0
+var health_points = 20
+var health_points_max = 200
+var menu_animation_path : String
 
 @onready var _state_machine
 
-var current_destination : Vector2
 var moving : bool
-var target = null
-var potential_target_list = []
 var attack_speed = 1
-var loot_value = 0
-var known_chests : Dictionary
-
-var potion_count = 0
 var knight_name
+
+@export var data : UnitData
+
+func _exit_tree():
+	if health_points > 0:
+		data.health_points = health_points
+		data.movement_speed = movement_speed
+		data.unit_name = knight_name
+		data.attack_speed = attack_speed
 
 
 func _ready():
+	health_points = data.health_points
+	movement_speed = data.movement_speed
+	
 	self.add_to_group("knight")
+	
 	var machine = load("res://entities/knight/states/knight_state_machine.tscn")
 	_state_machine = machine.instantiate()
 	add_child(_state_machine)
+	
 	knight_name = random_name_list.pick_random()
 	
 	get_tree().create_timer(attack_speed).timeout.connect(self.attack)
@@ -41,16 +48,6 @@ func got_a_kill(_killcount):
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(self,5)
-
-func loot_grabbed(loot):
-	loot_value += loot.value
-
-func healing_potion_grabbed(potion):
-	if health_points < health_points_max:
-		health_points += potion.healing
-		
-	else:
-		potion_count += 1
 
 func heal(heal_amount:int):
 	heal_animation()
@@ -70,7 +67,6 @@ func heal_animation():
 	await get_tree().create_timer(0.35).timeout
 	$Heal_Sprite.visible = false
 	_knight_sprite.modulate = Color.WHITE
-
 
 func take_damage(_enemy, damage):
 	_knight_sprite.modulate = Color.RED
@@ -110,7 +106,6 @@ func _process_animation_():
 		else:
 			_animation_player.play("Run")
 
-
 func attack():
 	if !uninteruptable_animations.has(_animation_player.get_current_animation()):
 		var center = get_parent().global_position
@@ -123,6 +118,7 @@ func attack():
 	get_tree().create_timer(attack_speed).timeout.connect(self.attack) 
 
 func die():
+	PlayerGlobal.party_data.erase(data)
 	queue_free()
 
 var random_name_list = [

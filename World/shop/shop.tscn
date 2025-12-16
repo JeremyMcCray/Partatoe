@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cq5t7weate4qb" path="res://world/props/chest/chest.tscn" id="3_4y3ck"]
 [ext_resource type="PackedScene" uid="uid://inlni3g8k5cj" path="res://entities/items/sword/sword.tscn" id="4_36yw0"]
 [ext_resource type="PackedScene" uid="uid://oqqv8ckxcl3c" path="res://ui/HUD.tscn" id="5_lf0jy"]
-[ext_resource type="Script" uid="uid://bylhx41griqkv" path="res://world/shop/next_level_area.gd" id="6_q2xa1"]
+[ext_resource type="Script" uid="uid://bylhx41griqkv" path="res://World/shop/next_level_area.gd" id="6_q2xa1"]
 [ext_resource type="PackedScene" uid="uid://dfe8ke2k4yhib" path="res://entities/items/tornado/tornado.tscn" id="7_36yw0"]
 [ext_resource type="PackedScene" uid="uid://y63h8luhmjwf" path="res://entities/items/health_ring/health_ring.tscn" id="8_3noby"]
 [ext_resource type="PackedScene" uid="uid://bh5orx7ma5ut0" path="res://entities/player/player.tscn" id="9_fmr7h"]
@@ -15,12 +15,9 @@
 radius = 36.0
 
 [node name="Shop" type="Node2D"]
-script = ExtResource("1_q2xa1")
-
-[node name="Player" parent="." instance=ExtResource("9_fmr7h")]
-position = Vector2(624, 91)
 
 [node name="CryptFirstRoom" type="Sprite2D" parent="."]
+z_index = -4
 position = Vector2(703, 399)
 texture = ExtResource("1_ep6v1")
 
@@ -31,7 +28,7 @@ zoom = Vector2(3, 3)
 [node name="HUD" parent="." instance=ExtResource("5_lf0jy")]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1088, 164)
+position = Vector2(771, 94)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("6_q2xa1")
@@ -77,5 +74,8 @@ collision_layer = 0
 item = NodePath("Knight_Gem")
 
 [node name="Knight_Gem" parent="Chest4" instance=ExtResource("10_4mkjb")]
+
+[node name="Player" parent="." instance=ExtResource("9_fmr7h")]
+position = Vector2(634, 138)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
