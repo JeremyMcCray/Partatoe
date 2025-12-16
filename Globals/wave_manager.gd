@@ -1,7 +1,5 @@
 extends Node2D
 
-#TODO remove as a global we don't really need this as one?
-
 @export var enemy_minimum_count : int 
 
 var wave_timer = 35
@@ -25,7 +23,6 @@ func _ready() -> void:
 	get_tree().create_timer(spawn_check_rate).timeout.connect(self.spawn_decider)
 	#Time out the wave after wave_timer
 	get_tree().create_timer(wave_timer).timeout.connect(self.end_wave)
-	
 
 func spawn_decider():
 	if spawn_enabled:

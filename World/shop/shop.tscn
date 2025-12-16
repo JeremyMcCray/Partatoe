@@ -27,7 +27,7 @@ zoom = Vector2(3, 3)
 [node name="HUD" parent="." instance=ExtResource("5_lf0jy")]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1088, 164)
+position = Vector2(771, 94)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("6_q2xa1")
